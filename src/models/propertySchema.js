@@ -1,35 +1,35 @@
 const mongoose = require("mongoose");
 
 const propertySchema = new mongoose.Schema({
-  PPID: {
+  ppid: {
     type: String,
     unique: true,
-    required: true,
+    required: true
   },
-  Property: {
+  property: {
     required: true,
-    type: String,
+    type: String
   },
-  Contact: {
+  contact: {
     required: true,
+    type: Number
+  },
+  area: {
+    required: true,
+    type: Number
+  },
+  views: {
     type: Number,
+    required: true
   },
-  Area: {
-    required: true,
-    type: Number,
-  },
-  Views: {
-    type: Number,
-    required: true,
-  },
-  Status: {
+  status: {
     type: String,
     default: "Unsold",
-    required: true,
+    required: true
   },
-  Duration: {
+  duration: {
     type: Number,
-    required: true,
+    required: true
   }
 });
 
