@@ -33,4 +33,22 @@ router.post("/", async function (req, res) {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+  let data = await properties.find();
+  res.json({
+    status: "sucess",
+    data:  data,
+  });
+}
+catch (error) {
+    res.status(500).json({
+      status: "Server Error",
+      message: error.message
+    });
+  }
+});
+
+
+
 module.exports = router;
