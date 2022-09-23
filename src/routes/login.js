@@ -111,14 +111,14 @@ router.post("/login", body("email").isEmail(), async (req, res) => {
         secret
       );
 
-      res.json({
-        status: "Sucessfully Logged in",
+      return res.json({
+        status: true,
         message: "Sucessfully Logged in",
         token: "test " + token,
         user: { id: data.userid, name: data.name }
       });
     } else {
-      res.json({
+      return res.json({
         status: "Failed to login",
         message: "Wrong Password"
       });
