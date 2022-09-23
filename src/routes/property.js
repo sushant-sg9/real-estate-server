@@ -3,15 +3,11 @@ const properties = require("../models/propertySchema");
 router.post("/", async function (req, res) {
   try {
     const details = Object.keys(req.body);
-    const fields = [
-      "property",
-      "contact",
-      "area",
-      "views",
-      "status",
-      "duration"
-    ];
+    const fields = ["property", "contact", "area"];
     const propertyId = "PPD" + Math.floor(Math.random() * 10000);
+    const status = "Unsold";
+    const duration = Math.floor(Math.random() * 100);
+    const views = Math.floor(Math.random() * 100);
     for (let i = 0; i < fields.length; i++) {
       if (!details.includes(fields[i])) {
         return res.status(400).json({
@@ -20,7 +16,13 @@ router.post("/", async function (req, res) {
         });
       }
     }
-    const data = await properties.create({ ...req.body, ppid: propertyId });
+    const data = await properties.create({
+      ...req.body,
+      ppid: propertyId,
+      status: status,
+      duration: duration,
+      views: views
+    });
     res.status(200).json({
       message: "Property created successfully",
       data: data
