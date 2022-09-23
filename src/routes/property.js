@@ -60,7 +60,7 @@ router.put("/:propertyId", async function (req, res) {
 
 router.get("/", async (req, res) => {
   try {
-    let data = await properties.find();
+    let data = await properties.find().sort({ status: -1 }).limit(10);
     res.json({
       status: "success",
       data: data
