@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const propertyRoutes = require("./routes/property");
-const userRoutes = require("./routes/user");
 const loginRoutes = require("./routes/login");
 const cors = require("cors");
 
@@ -13,7 +12,6 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/", userRoutes);
 app.use("/", loginRoutes);
 
 app.use("/properties", propertyRoutes);
