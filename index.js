@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const app = require("./src/app");
 
-mongoose.connect("mongodb://localhost/realestates", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  "mongodb+srv://abhirami:abhirami@cluster0.5mhzgvz.mongodb.net/realestates",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 mongoose.connection
   .once("open", () => {
